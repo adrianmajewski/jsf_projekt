@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html">
+    <h:form id="sklepform">
+        <h:panelGrid columns="3">
+
+            <h:outputText value="#{msg.nazwaSklepu}" />
+            <h:inputText id="nazwa" value="#{sklepBean.sklep.nazwa}" size="20">
+                <f:validateRequired />
+            </h:inputText>
+            <h:messages for="nazwa" style="color:red" />
+            
+            <h:outputText value="#{msg.adres}" />
+            <h:inputText id="adres" value="#{sklepBean.sklep.adres}" size="60" >
+                <f:validateRequired />
+            </h:inputText>
+            <h:messages for="adres" style="color:red" />
+            
+            <h:outputText value="#{msg.phoneLabel}" />
+            <h:inputText id="telefon" value="#{sklepBean.sklep.telefon}" size="60" />
+        </h:panelGrid>
+        <p>
+            <h:commandButton value="#{msg.zapisz}" action="#{sklepBean.update}" />
+        </p>
+    </h:form>
+</ui:composition>

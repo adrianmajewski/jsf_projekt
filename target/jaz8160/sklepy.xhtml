@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                template="/templates/default.xhtml">
+
+    <ui:define name="content">
+        <p>
+            <h:form>
+                <h:dataTable value="#{sklepBean.sklepy}" var="item">
+                <f:facet name="header">#{msg.sklepyTabela}</f:facet>
+
+                <h:column>
+                    <f:facet name="header">#{msg.nazwaSklepu}</f:facet>
+                    #{item.nazwa}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">#{msg.phoneLabel}</f:facet>
+                    #{item.telefon}
+                </h:column>
+                
+                <h:column>
+                    <f:facet name="header">#{msg.adres}</f:facet>
+                    #{item.adres}
+                </h:column>
+                
+                <h:column>
+                    <f:facet name="header">#{msg.action}</f:facet>
+                    <h:commandLink value="#{msg.edit}" action="#{sklepBean.editSklep()}"/>, 
+                    <h:commandLink value="#{msg.show}" action="#{sklepBean.show()}"/>, 
+                    <h:commandLink value="#{msg.delete}" action="#{sklepBean.delete()}"/>
+                </h:column>
+            </h:dataTable>
+            </h:form>
+        </p>
+    </ui:define>
+</ui:composition>
